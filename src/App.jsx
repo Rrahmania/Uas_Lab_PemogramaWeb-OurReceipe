@@ -1,14 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-// Import Komponen Navigasi dan Halaman
-// Asumsi path berikut benar dan komponen sudah tersedia
 import Navbar from './components/Navbar'; 
 import Kategori from './pages/Kategori';
 import DetailResep from './pages/DetailResep'; 
 import Favorite from './pages/Favorite'; 
 
-// Placeholder untuk halaman yang belum dibuat
 const HomePage = () => <div style={{padding: '50px', textAlign: 'center'}}>
     <h1 style={{color: '#DB944B'}}>Selamat Datang di Resep App!</h1>
     <p>Silakan jelajahi resep melalui menu Kategori.</p>
@@ -52,7 +48,6 @@ function App() {
         </Routes>
       </main>
       
-      {/* Anda bisa menambahkan Footer di sini */}
     </Router>
   );
 }
