@@ -1,0 +1,132 @@
+/* src/components/Navbar.css */
+
+/* --- Styling Utama (Desktop) --- */
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #FFE08D; /* Background Kuning Muda */
+    padding : 15px 7%;
+    position: sticky; /* Agar navbar tetap di atas saat scroll */
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Sedikit bayangan */
+}
+
+.logo-link {
+    text-decoration: none;
+}
+
+.logo{
+    width: 150px;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    display: flex; /* Default desktop: flex row */
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+ul li{
+    margin: 0 18px; /* Jarak horizontal yang rapi */
+    font-size: 17px;
+    font-weight: 500;
+    transition: color 0.2s, border-bottom 0.2s;
+    padding: 5px 0; /* Memberi ruang untuk border bottom */
+}
+
+ul li:hover{
+    color: #DB944B;
+    border-bottom: 3px solid #DB944B; /* Border bottom yang lebih tebal */
+}
+
+ul li a{
+    text-decoration: none;
+    color: #DB944B; /* Warna Teks Utama */
+    transition: color 0.2s;
+}
+
+/* Hilangkan border bottom saat hover jika bukan <li> */
+ul li a:hover {
+    color: #A36F35; /* Sedikit lebih gelap saat hover */
+}
+
+
+/* --- Burger Menu Styling (Mobile) --- */
+
+.menu-icon {
+    display: none; 
+    cursor: pointer;
+    z-index: 1001; /* Pastikan di atas menu */
+    padding: 5px; /* Area klik lebih besar */
+}
+
+.burger-img {
+    width: 30px;
+    height: 30px;
+    /* Ubah filter agar ikon terlihat jelas di background Kuning */
+    filter: invert(40%) sepia(20%) saturate(600%) hue-rotate(340deg) brightness(80%); 
+}
+
+/* MEDIA QUERY: Mobile/Tablet */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 5%;
+    }
+
+    /* Tampilkan ikon burger/close */
+    .menu-icon {
+        display: block; 
+    }
+    
+    /* Sembunyikan menu di desktop */
+    ul {
+        /* Reset display flex bawaan desktop */
+        display: flex; 
+        position: fixed;
+        top: 0; 
+        right: -100%; /* Sembunyikan di luar layar kanan */
+        width: 70%; /* Lebar menu yang muncul: 70% */
+        height: 100vh; 
+        background: #F9F1E5; /* Warna latar belakang kontras */
+        flex-direction: column; 
+        justify-content: flex-start; 
+        padding-top: 100px; /* Jarak dari atas */
+        transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Transisi muncul yang lebih 'pop' */
+        z-index: 999;
+        box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Saat menu memiliki class 'open', tampilkan di layar */
+    ul.open {
+        right: 0;
+    }
+
+    ul li {
+        display: block; 
+        width: 100%;
+        margin: 0;
+        padding: 15px 30px; /* Padding untuk list item */
+        border-bottom: 1px solid #DB944B1A; /* Garis pemisah yang halus */
+    }
+    
+    /* Hapus hover effect border di mobile, ganti dengan background sederhana */
+    ul li:hover {
+        border-bottom: none;
+        background-color: #FFE08D30; /* Background highlight saat hover/tap */
+    }
+
+    /* Style Link di dalam menu mobile */
+    ul li a {
+        display: block;
+        width: 100%;
+        color: #DB944B;
+        font-size: 1.1em;
+        font-weight: bold;
+        padding: 5px 0;
+    }
+}
